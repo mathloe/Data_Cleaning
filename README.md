@@ -7,7 +7,7 @@ This repository contains the following
 * [**codebook.md**](https://github.com/mathloe/Data_Cleaning/blob/master/codebook.md): a markdown file describing the output of the analysis
 
 ## The analysis script (run_analysis.R)
-This script combines the test and train data from the UCI HAR Dataset, formats it, shortens it to include only mean and standard deviation values, and finally creates a summary of the data. The main output are two datasets: the entire output data ("data") and the summary ("summary")
+This script combines the test and train data from the UCI HAR Dataset, formats it, shortens it to include only mean and standard deviation values, and finally creates a summary of the data. The output are two datasets: the entire output data ("data") and the summary ("summary")
 
 The steps executed in this script are as follows:
 

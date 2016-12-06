@@ -27,7 +27,7 @@ data <- rbind(test,train)
 # activity, the remaining columns are named according to the features dataset.
 # As some names occur multiple times in features, the make.names() function is
 # used to make the features into usable column names.
-# gsub() is called to replace "..." in the names by one "."
+# gsub() function is called to remove unnecessary "." characters in the names.
 features$V2 <- make.names(features$V2, unique = TRUE)
 features$V2 <- gsub("\\.\\.\\.",".",features$V2)
 features$V2 <- gsub("\\.\\.",".",features$V2)
@@ -46,6 +46,11 @@ data$activity <- mapvalues(data$activity,activity_labels$V1,activity_labels$V2)
 
 # For the final summary, the data is grouped by subject and activity. Afterwards
 # the summarize_all function is used to calculate the mean of each variable
+
 data <- group_by(data, subject, activity)
 summary <- summarize_all(data, funs(mean))
 
+# Clean up the workspace by removing all created datasets, except for the
+# desired output (data and summary)
+remove(activity_labels, features, test_subject, test_x, test_y, train_subject,
+       train_x, train_y, test, train)
